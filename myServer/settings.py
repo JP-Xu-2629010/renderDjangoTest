@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,13 +20,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-tq4kasoc7dgfz3qj$94us3e%&*1f1n#ftwz8gc(oy@wvb!vd74"
-
+# SECRET_KEY = "django-insecure-tq4kasoc7dgfz3qj$94us3e%&*1f1n#ftwz8gc(oy@wvb!vd74"
+SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG", False) == True
 
-ALLOWED_HOSTS = []
-
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
@@ -91,10 +92,10 @@ import dj_database_url
 
 DATABASES = {
     # internal
-    #"default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a/ict4d_test"),
+    "default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a/ict4d_test"),
     
     # ex
-    "default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a.oregon-postgres.render.com/ict4d_test"),
+    #"default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a.oregon-postgres.render.com/ict4d_test"),
 }
 
 # Password validation
@@ -137,3 +138,4 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
