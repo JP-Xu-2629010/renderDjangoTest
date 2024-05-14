@@ -27,7 +27,11 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", False) == True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+# 获取环境变量 'ALLOWED_HOSTS' 的值，如果没有设置则返回一个空字符串
+allowed_hosts = os.environ.get("ALLOWED_HOSTS", "")
+# 使用空格 ' ' 作为分隔符来分割字符串
+ALLOWED_HOSTS = allowed_hosts.split(" ") if allowed_hosts else []
+
 
 # Application definition
 
