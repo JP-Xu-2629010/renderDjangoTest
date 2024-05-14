@@ -7,3 +7,5 @@ class UserCase(models.Model):
     tree_type = models.IntegerField(choices=[(i, str(i)) for i in range(9)])
     location = models.CharField(max_length=32)
     audio_file = models.FileField(upload_to='audio_files/')
+    checked = models.IntegerField(choices=[(i, str(i)) for i in range(4)])
+    # 0 not, 1 invalid, 2 checked, 3 other
