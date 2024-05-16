@@ -5,3 +5,5 @@ from django.http import HttpResponse
 def vxml(request):
     print(request.method)
     return HttpResponse('成功')
+
+# def addCase(request):

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ICT4D_Group10</title>
+</head>
+<body>
+    <h1>User Cases</h1>
+    <table border="1">
+        <tr>
+            <th>timestamp</th>
+            <th>tree_type</th>
+            <th>user_quantity</th>
+            <th>actual_quantity</th>
+            <th>location</th>
+            <th>audio</th>
+            <th>checked</th>
+        </tr>
+        {% for case in cases %}
+        <tr>
+            <td>{{ case.timestamp }}</td>
+            <td>{{ case.tree_type }}</td>
+            <td>{{ case.user_quantity }}</td>
+            <td>{{ case.actual_quantity }}</td>
+            <td>{{ case.location }}</td>
+            <td>
+                <audio controls>
+                    <source src="{{ case.audio_file.url }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </td>
+            <td>{{ case.checked }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
