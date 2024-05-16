@@ -21,6 +21,10 @@ from tree01 import views
 urlpatterns = [
     # path("admin/", admin.site.urls),
     path("vxml/", views.vxml),
-    path("viewdb/",views.viewdb),
+    path("viewdb/",views.viewdb, name="viewdb"),
     path("test/", views.test),
+    path("case/<int:case_id>/", views.caseCheck),
+    path("checkUpload/",views.checkUpload, name = "checkUpload"),
+    path("create088/", views.create088),
+    path("vxmlUpload/", views.vxmlUpload),
 ]

@@ -3,9 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>ICT4D_Group10</title>
+    <script type="text/javascript">
+        function goToCase(caseId) {
+            window.location.href = '/case/' + caseId;
+        }
+    </script>
 </head>
 <body>
     <h1>User Cases</h1>
+    <h2>Click on the corresponding row to upload inspection results</h2>
     <table border="1">
         <tr>
             <th>timestamp</th>
@@ -17,7 +23,7 @@
             <th>checked</th>
         </tr>
         {% for case in cases %}
-        <tr>
+        <tr onclick="goToCase({{ case.id }})">
             <td>{{ case.timestamp }}</td>
             <td>{{ case.tree_type }}</td>
             <td>{{ case.user_quantity }}</td>
@@ -39,3 +45,4 @@
     </table>
 </body>
 </html>
+

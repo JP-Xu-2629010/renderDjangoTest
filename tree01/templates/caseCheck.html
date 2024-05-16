@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Case Detail</title>
+</head>
+<body>
+    <h1>Case Detail</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <td>{{ case.id }}</td>
+        </tr>
+        <tr>
+            <th>Timestamp</th>
+            <td>{{ case.timestamp }}</td>
+        </tr>
+        <tr>
+            <th>Tree Type</th>
+            <td>{{ case.tree_type }}</td>
+        </tr>
+        <tr>
+            <th>User Quantity</th>
+            <td>{{ case.user_quantity }}</td>
+        </tr>
+        <tr>
+            <th>Actual Quantity</th>
+            <td>{{ case.actual_quantity }}</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>{{ case.location }}</td>
+        </tr>
+        <tr>
+            <th>Audio</th>
+            <td>
+                {% if case.audio_file %}
+                    <audio controls>
+                        <source src="{{ case.audio_file.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                {% else %}
+                    <p>No audio file available.</p>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Checked</th>
+            <td>{{ case.checked }}</td>
+        </tr>
+    </table>
+
+    <form id="toSubmit" action="{% url 'checkUpload' %}" method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="case_id" value="{{ case.id }}">
+
+        <label for="new_tree_type">tree_type:</label>
+        <input type="number" id="new_tree_type" name="new_tree_type"><br>
+
+        <label for="new_actual_quantity">actual_quantity:</label>
+        <input type="number" id="new_actual_quantity" name="new_actual_quantity"><br>
+    
+        <label for="new_location">location:</label>
+        <input type="text" id="new_location" name="new_location"><br>
+    
+        <label for="new_checked">checked:</label>
+        <input type="number" id="new_checked" name="new_checked"><br>
+    
+        <input type="submit" value="Submit">
+    </form>
+    
+
+    <a href="{% url 'viewdb' %}">Back to all cases</a>
+
+    <script>
+        document.getElementById('toSubmit').onsubmit = function() {
+            // 获取表单中的输入值
+            var treeType = document.getElementById('new_tree_type').value;
+            var actualQuantity = document.getElementById('new_actual_quantity').value;
+            var location = document.getElementById('new_location').value;
+            var checked = document.getElementById('new_checked').value;
+        
+            // 检查每个输入是否已填写
+            if(treeType && actualQuantity && location && checked) {
+                return true; // 如果所有字段都填了，允许表单提交
+            } else {
+                alert('empty value!!!'); // 如果有字段没填，显示警告
+                return false; // 阻止表单提交
+            }
+        };
+    </script>
+
+</body>
+</html>
