@@ -9,7 +9,10 @@ def vxml(request):
 
 def viewdb(request):
     cases = UserCase.objects.all()  # 获取UserCase表中的所有记录
+    #print(cases)
     return render(request, 'viewdb.html', {'cases': cases})
     #return HttpResponse('db成功')
 
+def test(request):
+    return render(request, "test.html")
 # def addCase(request):
