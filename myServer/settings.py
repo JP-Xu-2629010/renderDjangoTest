@@ -96,10 +96,10 @@ import dj_database_url
 
 DATABASES = {
     # internal
-    "default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a/ict4d_test"),
+    #"default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a/ict4d_test"),
     
     # ex
-    #"default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a.oregon-postgres.render.com/ict4d_test"),
+    "default": dj_database_url.parse("postgres://ict4d_test_user:aRPfbR4lMhF9OKmbgCVCEQ4UKIO9gaGr@dpg-cp1q4ject0pc73d6c9d0-a.oregon-postgres.render.com/ict4d_test"),
 }
 
 # Password validation
