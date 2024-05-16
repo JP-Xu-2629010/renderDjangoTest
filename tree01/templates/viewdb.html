@@ -24,10 +24,14 @@
             <td>{{ case.actual_quantity }}</td>
             <td>{{ case.location }}</td>
             <td>
-                <audio controls>
-                    <source src="{{ case.audio_file.url }}" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
+                {% if case.audio_file %}
+                    <audio controls>
+                        <source src="{{ case.audio_file.url }}" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                {% else %}
+                    <p>No audio file available.</p>
+                {% endif %}
             </td>
             <td>{{ case.checked }}</td>
         </tr>
