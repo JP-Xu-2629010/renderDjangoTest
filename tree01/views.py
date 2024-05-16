@@ -14,5 +14,6 @@ def viewdb(request):
     #return HttpResponse('db成功')
 
 def test(request):
+    print("test running")
     return render(request, "test.html")
 # def addCase(request):

@@ -22,4 +22,5 @@ urlpatterns = [
     # path("admin/", admin.site.urls),
     path("vxml/", views.vxml),
     path("viewdb/",views.viewdb),
+    path("test/", views.test),
 ]
