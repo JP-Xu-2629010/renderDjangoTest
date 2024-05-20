@@ -59,7 +59,8 @@ def checkUpload(request):
 
 def vxmlUpload(request):
     if request.method == 'POST':
-        new_user_quantity = "0"
+        return HttpResponse('success')
+        """ new_user_quantity = "0"
         new_tree_type = request.POST.get('treeType')
         new_record = request.FILES.get('record')
 
@@ -70,7 +71,7 @@ def vxmlUpload(request):
             location='unknown',  
             audio_file=new_record,  
             checked=0  
-        )
+        ) """
 
         # return HttpResponse(f'Submitted, id {selectedId}, quantity {actual_quantity}, location {location}, checked {checked}',<br><a href="/viewdb/">return to  viewdb</a>)
         # return HttpResponse('success')
