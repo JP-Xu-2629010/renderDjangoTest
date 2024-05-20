@@ -73,8 +73,8 @@ def vxmlUpload(request):
         )
 
         # return HttpResponse(f'Submitted, id {selectedId}, quantity {actual_quantity}, location {location}, checked {checked}',<br><a href="/viewdb/">return to  viewdb</a>)
-        return HttpResponse('success')
-    return HttpResponse('error: not POST')
+        # return HttpResponse('success')
+    # return HttpResponse('error: not POST')
 
 def create088(request):
     UserCase.objects.create(
