@@ -40,7 +40,8 @@ def caseCheck(request, case_id):
 
 def checkUpload(request):
     if request.method == 'POST':
-        selectedId = request.POST.get('case_id')
+        return HttpResponse('POST')
+        """ selectedId = request.POST.get('case_id')
         tree_type = request.POST.get('new_tree_type')
         actual_quantity = request.POST.get('new_actual_quantity')
         location = request.POST.get('new_location')
@@ -54,7 +55,7 @@ def checkUpload(request):
 
         user_case.save()
 
-        return HttpResponse(f'Submitted, id {selectedId}, quantity {actual_quantity}, location {location}, checked {checked}<br><a href="/viewdb/">return to  viewdb</a>')
+        return HttpResponse(f'Submitted, id {selectedId}, quantity {actual_quantity}, location {location}, checked {checked}<br><a href="/viewdb/">return to  viewdb</a>') """
     return HttpResponse('error: not POST')
 
 def vxmlUpload(request):
