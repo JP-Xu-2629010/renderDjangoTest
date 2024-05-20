@@ -60,6 +60,8 @@ def checkUpload(request):
 def vxmlUpload(request):
     if request.method == 'POST':
         return HttpResponse('success')
+    else:
+        return HttpResponse('Method not allowed.')
         """ new_user_quantity = "0"
         new_tree_type = request.POST.get('treeType')
         new_record = request.FILES.get('record')
